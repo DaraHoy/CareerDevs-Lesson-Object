@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hotel Exercise</title>
+</head>
+<body>
+    <!-- Create  -->
+    <h1>Hotel</h1>
+    <p id="hotelName"></p>
+
+    <h3>Total Rooms</h3>
+    <p id="rooms"></p>
+
+    <h3>Rooms Available</h3>
+    <p id="roomsAvail"></p>
+
+    <button onclick="getHotelInfo()">Update Info: </button>
+
+    <script type="text/javascript">
+        var hotel = {
+            name: "Biltmore",
+            rooms: 500,
+            roomsBooked: 150,
+            gym: "Yes",
+            pool: "Yes",
+            businessOffice: "Yes",
+
+            roomsAvailable: function() {
+                return this.rooms - this.roomsBooked;
+            }
+        };
+
+        var name = document.getElementById("hotelName");
+        var rooms = document.getElementById("rooms");
+        var available = document.getElementById("roomsAvail");
+
+        var getHotelInfo = function(){
+            console.log(name);
+            console.log(rooms);
+            console.log(available);
+            document.getElementById("hotelName").innerHTML = hotel.name;
+            // name.innerHTML = hotel.name; does NOT update DOM
+            rooms.innerHTML = hotel.rooms;
+            available.innerHTML = hotel.roomsAvailable();
+        }
+    </script>
+</body>
+</html>
+
